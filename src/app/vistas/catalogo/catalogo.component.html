@@ -1,0 +1,23 @@
+<h1 class="text-center"><strong>Catálogo de Pokémon</strong></h1>
+<hr>
+<mat-card class="col-12">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2" *ngFor="let catalogo of catalogPokedex.results;">
+                <a [routerLink]="['/detalle']" [queryParams]="{ id: idPokemon(catalogo.url)}">
+                    <div class="profile-card-6" [ngStyle]="{'background-color': colorPokemons()}">
+                        <img src="{{imgPokemon(catalogo.url)}}" class="img img-responsive" width="120rem" height="120rem">
+                        <div class="profile-overview">
+                            <div class="row text-center">
+                                <div class="col-xs-4">
+                                    <h3>{{catalogo.name|uppercase}}</h3>
+                                    <small>{{catalogo.url}}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</mat-card>

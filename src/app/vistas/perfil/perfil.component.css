@@ -1,0 +1,6 @@
+.example-card {}
+
+.example-header-image {
+    background-image: url('../../../assets/YOK.png');
+    background-size: cover;
+}

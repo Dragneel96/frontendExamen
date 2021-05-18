@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col col-md-6" [ngStyle]="{'background-color': colorPokemons()}">
+        <div class="profile-card-4 text-center">
+            <img src="{{imgPokemon(datallePokemon.id)}}" width="50%" class="img img-responsive">
+            <div class="profile-content">
+                <div class="profile-name">{{datallePokemon.name | uppercase}}
+                </div>
+                <div class="profile-description">
+                    {{datalleHabilidad.effect_entries[0].effect}}
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="profile-card-4 text-center">
+            <div class="profile-content">
+                <h3 style="font-size: 2rem; color: red;">Habilidades:</h3>
+                <div class="profile-description">
+                    <div class="row">
+                        <div class="col" *ngFor="let habilidad of datallePokemon.abilities;">
+                            <span class="badge rounded-pill bg-success" style="font-size: 1.5rem;">{{habilidad.ability.name}}</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <h3 style="font-size: 2rem;">Tamaño:</h3>
+                <div class="profile-description">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="text-center" style="font-size: 1.5rem;">Alto</h5>
+                            <span class="badge rounded-pill bg-danger" style="font-size: 1.5rem;">{{datallePokemon.height}}</span>
+                        </div>
+                        <div class="col">
+                            <h5 class="text-center" style="font-size: 1.5rem;">Ancho</h5>
+                            <span class="badge rounded-pill bg-danger" style="font-size: 1.5rem;">{{datallePokemon.weight}}</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <h3 style="font-size: 2rem;">Movimientos:</h3>
+                <div class="row">
+                    <div class="col" *ngFor="let move of datallePokemon.moves;">
+                        <span class="badge rounded-pill bg-dark" style="font-weight: normal; font-size: 0.8rem;">{{move.move.name}}</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="profile-overview">
+                            <p>EXPERIENCIA BASE: {{datallePokemon.base_experience}}</p>
+                            <mat-slider min="0" max="100" step="0.5" value="{{datallePokemon.base_experience}}"></mat-slider>
+                        </div>
+                    </div>
+
+                    <div class="example-button-row">
+                        <div class="example-flex-container">
+                            <div class="example-button-container">
+                                <a href="../catalogo" mat-fab color="warn" aria-label="Example icon button with a home icon">
+                                    <mat-icon>home</mat-icon>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
